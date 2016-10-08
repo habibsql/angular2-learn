@@ -1,0 +1,13 @@
+<toh-hero [hero]="selectedHero"> </toh-hero>
+<ul class="down">
+    <li *ngFor="let hero of (heroes)" 
+        (click)="onSelect(hero)" 
+        [class.selected]="hero===selectedHero"
+    >
+        <span class="badge">{{hero.id}}</span>{{hero.name}}
+    </li>
+</ul>
+<ul style="margin-top:400px; border:1px solid gray;width:80px;">
+    <li *ngFor="let name of names | sort" >  {{name | uppercase}}</li>
+</ul>
+

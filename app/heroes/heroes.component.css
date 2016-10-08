@@ -1,0 +1,20 @@
+.selected{
+    background: red;
+    color:white;
+}
+.badge{
+    width:20px;
+    display:inline-block;
+    background:red;
+    margin-right:10px;    
+}
+
+ul li{
+    list-style-type: none;
+    width: 200px;
+}
+
+table {
+    width:400px;
+    height:300px;
+}

@@ -1,0 +1,47 @@
+<div style="margin-top:20px;">
+   <select [ngModel]="selectedReportId"  (ngModelChange)="onFilter($event)">    
+       <option selected>Select All...</option>
+       <option *ngFor="let id of reportIds" [ngValue]="id">{{id}}</option>       
+   </select>
+   <button (click)="onExport()">Export </button>   
+    <input type="text" placeholder="search..." #search />
+    <button (click) = "onSearch(search.value)">Go</button>    
+    
+</div>
+<div style="margin-top:20px; margin-bottom:10px">
+    <span>ReportList:</span>
+</div>
+<div>
+    <table table-spacing="0">
+        <thead>               
+            <tr>
+                <td><input type="checkbox" (click)="onSelectAll()" /></td>
+                <td>
+                    <span>
+                        <a href="#" (click)="onSort('reportId')" >Report Id</a>
+                    </span>                   
+                </td>
+                <td><a href="#" (click)="onSort('reportTitle')">Report Title </a></td>
+                <td><a href="#">Created Date </a></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of reports">
+                <td><input type="checkbox" #{{report.reportId}} [(ngModel)]="report.isSelected"/></td>
+                <td>{{report.reportId}}</td>
+                <td>{{report.reportTitle}}</td>
+                <td>{{report.createdDate}}</td>
+                <td><span><a href="#" (click)="onDelete(report.reportId)">delete</a></span></td>
+            </tr>
+        </tbody>
+        <!--<tfoot>
+            <ul style="list-style-type: none;">
+                <li style="float:left;" *ngFor="let page of Pages"> <a href="#">{{page.pageNumber}} </a> </li>
+            </ul>
+        </tfoot>-->
+    </table>
+</div>
+
+
+
